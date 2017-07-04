@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"	
+                template="WEB-INF/template.xhtml">
+
+    <ui:define name="titulo">
+        Area administrativa!
+    </ui:define>
+
+    <ui:define name="conteudo">	
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">                                                
+                <ul class="nav nav-pills">
+                    <li><a href="#{request.contextPath}/condominio/index.xhtml">CONDOMINIO</a></li>
+                    <li><a href="#{request.contextPath}/pessoa/index.xhtml">PESSOA</a></li>
+                    <li><a href="#{request.contextPath}/estado/index.xhtml">ESTADO</a></li>
+                    <li><a href="#{request.contextPath}/cidade/index.xhtml">CIDADE</a></li>
+                </ul>                        
+            </div>
+        </nav> 
+    </ui:define>	
+
+</ui:composition>

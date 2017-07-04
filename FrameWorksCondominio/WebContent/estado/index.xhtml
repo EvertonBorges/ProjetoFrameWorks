@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Projeto Framework-Condominio</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    </h:head>
+    <h:body>
+        
+        <h:form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <h:inputText styleClass="form-control"/>
+            </div>
+            <h:commandButton class="btn btn-default" value="Pesquisar"/>
+        </h:form>
+        
+        <h:form>
+            <div class="form-group col-xs-12">
+                
+                <h:dataTable id="tabela" styleClass="table table-hover" value="#{estadoController.estados}" var="estado">
+                    <h:column>
+                        <f:facet name="header">
+                            Código
+                        </f:facet>
+                        #{estado.id}
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">
+                            Nome
+                        </f:facet>
+                        #{estado.nome}
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">
+                            AÇÕES
+                        </f:facet>
+                        <h:commandLink value="Remover " />                        
+                        <h:commandLink value=" Editar" >                            
+                        </h:commandLink>
+                    </h:column>
+                    
+                </h:dataTable>
+                <h:commandButton class="btn btn-default navbar-btn" action="#{estadoController.listar}" value="Listar"/>
+                <h:link class="btn btn-default navbar-btn" >Cadastrar</h:link>
+            
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

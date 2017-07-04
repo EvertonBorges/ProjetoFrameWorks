@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="titulo">
+        Area cidade!
+    </ui:define>
+
+    <ui:define name="conteudo">
+        
+        <h:form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <h:inputText styleClass="form-control"/>
+            </div>
+            <h:commandButton class="btn btn-default" value="Pesquisar"/>
+        </h:form>
+        
+        <h:form>
+            <div class="form-group col-xs-12">
+                
+                <h:dataTable id="tabela" styleClass="table table-hover" value="#{cidadeController.cidades}" var="cidade">
+                    <h:column>
+                        <f:facet name="header">
+                            Código
+                        </f:facet>
+                        #{cidade.id}
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">
+                            Nome
+                        </f:facet>
+                        #{cidade.nome}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Nome
+                        </f:facet>
+                        #{cidade.estado.nome}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            AÇÕES
+                        </f:facet>
+                        <h:commandLink value="Remover " />                        
+                        <h:commandLink value=" Editar" >                            
+                        </h:commandLink>
+                    </h:column>
+                    
+                </h:dataTable>
+                <h:commandButton class="btn btn-default navbar-btn" action="#{cidadeController.listar}" value="Listar"/>
+                <h:link class="btn btn-default navbar-btn" outcome="cadastrar.xhtml" >Cadastrar</h:link>
+            
+            </div>
+        </h:form>
+    
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <title><ui:insert name="titulo">Titulo</ui:insert> - FrameWorks</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+    </h:head>
+
+    <h:body>
+
+        <div id="header">
+            <ui:insert name="header">
+
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#{request.contextPath}/index.xhtml">Projeto-Condominio</a>
+                        </div>
+                        <ul class="nav nav-tabs nav-justified">
+                            <li><a href="../#{request.contextPath}/adm.xhtml">Administração</a></li>
+                        </ul>                        
+                    </div>
+                </nav>
+                <br />
+                <br />
+
+            </ui:insert>
+        </div>
+
+        <ui:insert name="conteudo">
+
+        </ui:insert>
+
+        <ui:insert name="postjavascript">
+        </ui:insert>
+
+    </h:body>
+</html>

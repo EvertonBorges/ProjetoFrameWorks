@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="titulo">
+        Area cidade!
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <div class="container well white-well">
+            <h:form>
+                <legend>Cadastro de Cidade</legend>
+                <div class="row center-block">
+
+                    <div class="form-group col-xs-12">
+                        <h:outputLabel for="nome" value="Nome" />
+                        <h:message for="nome" styleClass="label label-danger" />
+                        <h:inputText id="nome" value="#{cidadeController.cidade.nome}"
+                                     styleClass="form-control" />
+                    </div>                                        
+
+                    <div class="form-group col-xs-12">
+                        <h:outputLabel for="est" value="Estado:" />
+                        <h:message for="est" styleClass="label label-danger" />
+                        <h:selectOneMenu styleClass="form-control" id="tipo">
+                            <f:selectItem itemValue="" itemLabel="Selecione..." />
+                            <f:selectItems value="#{estadoController.estados}" var="estado"
+                                           itemLabel="#{estado.nome}" itemValue="#{estado.id}" />
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group col-xs-12">
+                        <h:commandButton value="Cadastrar"
+                                         action="#{cidadeController.salvar}"
+                                         styleClass="btn btn-success pull-right totop">
+                            <f:ajax execute="@form" render="@all" />
+                        </h:commandButton>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
